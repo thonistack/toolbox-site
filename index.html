@@ -1,58 +1,263 @@
-
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="Direktori tools digital untuk pemula.">
-  <title>Toolbox — Temukan Tools Digital</title>
+
+  <meta
+    name="description"
+    content="Find digital tools for everyday tasks. Compare what they do, their free-plan limits, and which tool fits your needs."
+  >
+
+  <meta name="theme-color" content="#f7f7f2">
+
+  <title>Toolbox — Find the Right Tool for the Job</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
+
 <body>
-  <header class="header">
-    <a class="brand" href="#">toolbox<span>.</span></a>
-    <span class="tag">DIREKTORI TOOLS</span>
+  <a class="skip-link" href="#main">
+    Skip to content
+  </a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Toolbox home">
+        toolbox<span class="brand-mark">.</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#directory">Explore tools</a>
+        <a href="#how-to-choose">How to choose</a>
+      </nav>
+
+      <a class="header-cta" href="#directory">
+        Find a tool <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
-      <p class="eyebrow">LEBIH PRODUKTIF, TANPA RIBET</p>
-      <h1>Tools yang tepat.<br>Kerja lebih cepat.</h1>
-      <p class="subtitle">
-        Temukan alat digital untuk desain, AI,
-        produktivitas, dan pengembangan web.
-      </p>
+      <div class="hero-inner">
+        <p class="eyebrow">
+          A PRACTICAL DIRECTORY OF DIGITAL TOOLS
+        </p>
 
-      <label class="search">
-        <span aria-hidden="true">⌕</span>
-        <input id="search" type="search"
-               placeholder="Cari tools, misalnya desain..."
-               aria-label="Cari tools">
-      </label>
+        <h1>
+          Find the right tool
+          <span>for the job.</span>
+        </h1>
 
-      <nav id="filters" class="filters"
-           aria-label="Filter kategori"></nav>
-    </section>
+        <p class="hero-description">
+          From editing documents to creating visuals,
+          explore useful tools and understand what each one offers
+          before you choose.
+        </p>
 
-    <section class="catalog">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">PILIHAN UNTUK LU</p>
-          <h2>Jelajahi tools</h2>
-        </div>
-        <span id="count" class="count"></span>
+        <form
+          class="search-form"
+          id="search-form"
+          role="search"
+          action="#directory"
+        >
+          <label class="visually-hidden" for="search">
+            Search digital tools
+          </label>
+
+          <span class="search-icon" aria-hidden="true">⌕</span>
+
+          <input
+            id="search"
+            name="q"
+            type="search"
+            placeholder="What are you trying to do?"
+            autocomplete="off"
+          >
+
+          <button id="clear-search" type="button" hidden>
+            Clear
+          </button>
+        </form>
+
+        <p class="search-examples">
+          Try
+          <button type="button" class="suggestion" data-query="PDF">
+            edit a PDF
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="suggestion" data-query="image">
+            resize an image
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" class="suggestion" data-query="writing">
+            improve writing
+          </button>
+        </p>
       </div>
 
-      <div id="tools" class="tools"></div>
-      <p id="empty" hidden>Tools tidak ditemukan.</p>
+      <div class="hero-note">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Browse by task. Choose with confidence.</span>
+      </div>
+    </section>
+
+    <section
+      class="directory section-container"
+      id="directory"
+      aria-labelledby="directory-title"
+    >
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE DIRECTORY</p>
+
+          <h2 id="directory-title">
+            What do you need to get done?
+          </h2>
+
+          <p class="section-description">
+            Explore tools by category or search for a specific task.
+          </p>
+        </div>
+
+        <p class="result-count" id="count" aria-live="polite"></p>
+      </div>
+
+      <nav
+        class="category-filters"
+        id="filters"
+        aria-label="Filter tools by category"
+      ></nav>
+
+      <div
+        class="tools-grid"
+        id="tools"
+        aria-live="polite"
+      ></div>
+
+      <div class="empty-state" id="empty" hidden>
+        <h3>No matching tools found</h3>
+
+        <p>
+          Try a different search term or browse all categories.
+        </p>
+
+        <button
+          class="secondary-button"
+          id="reset-search"
+          type="button"
+        >
+          Show all tools
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="how-to-choose section-container"
+      id="how-to-choose"
+      aria-labelledby="guide-title"
+    >
+      <div class="guide-intro">
+        <p class="eyebrow">BEFORE YOU CHOOSE</p>
+
+        <h2 id="guide-title">
+          A useful tool is one that fits your needs.
+        </h2>
+
+        <p>
+          The most popular option isn't always the right one.
+          Check the details before spending your time or money.
+        </p>
+      </div>
+
+      <div class="guide-list">
+        <article class="guide-item">
+          <span class="guide-number">01</span>
+
+          <div>
+            <h3>Start with the task</h3>
+
+            <p>
+              Be specific about what you need to do.
+              A tool for compressing a PDF may not be the best
+              choice for editing its contents.
+            </p>
+          </div>
+        </article>
+
+        <article class="guide-item">
+          <span class="guide-number">02</span>
+
+          <div>
+            <h3>Check the limits</h3>
+
+            <p>
+              Review free-plan restrictions, account requirements,
+              file-size limits, and paid features.
+            </p>
+          </div>
+        </article>
+
+        <article class="guide-item">
+          <span class="guide-number">03</span>
+
+          <div>
+            <h3>Protect your information</h3>
+
+            <p>
+              Read the privacy policy before uploading sensitive
+              documents, images, or personal information.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-strip">
+      <div class="about-inner">
+        <p class="eyebrow">OUR APPROACH</p>
+
+        <h2>Less browsing. Better decisions.</h2>
+
+        <p>
+          Toolbox helps you discover digital tools by focusing
+          on what they do, who they may suit, and what to check
+          before using them.
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>Toolbox — direktori independen untuk belajar.</p>
-    <p>Harga dan fitur dapat berubah. Periksa situs resmi.</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="./">
+          toolbox<span class="brand-mark">.</span>
+        </a>
+
+        <p>
+          A practical starting point for finding digital tools.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          Toolbox is an independent directory and is not affiliated
+          with the services listed unless explicitly stated.
+        </p>
+
+        <p>
+          Features, availability, and pricing may change.
+          Always check the provider's official website.
+        </p>
+
+        <p class="copyright">
+          © <span id="current-year">2026</span> Toolbox
+        </p>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
